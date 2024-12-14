@@ -7,7 +7,7 @@ const TicTacToe = () => {
   const [isXNext, setIsXNext] = useState(true);
 
   const handleClick = (index) => {
-    if (board[index]) return; // Prevent overwriting a filled cell
+    if (board[index]) return;
     const newBoard = [...board];
     newBoard[index] = isXNext ? 'X' : 'O';
     setBoard(newBoard);
@@ -17,7 +17,7 @@ const TicTacToe = () => {
   const renderCell = (value, index) => (
     <div
       key={index}
-      className="p-12 border border-black flex justify-center items-center"
+      className="flex justify-center items-center w-full h-24 border border-black cursor-pointer"
       onClick={() => handleClick(index)}
     >
       {value === 'X' && <img src={cross} alt="Cross" className="w-10" />}
@@ -28,8 +28,8 @@ const TicTacToe = () => {
   return (
     <>
       <div className="flex flex-col justify-center items-center">
-        <h1 className="text-red-900 text-2xl font-bold mb-4">Tic Tac Toe Game</h1>
-        <div className="container w-2/5 grid grid-cols-3 gap-2 bg-cyan-500">
+        <h1 className="text-900 text-2xl font-bold mb-4">Tic Tac Toe Game</h1>
+        <div className="grid grid-cols-3 border border-black w-64 aspect-square">
           {board.map((cell, index) => renderCell(cell, index))}
         </div>
       </div>
