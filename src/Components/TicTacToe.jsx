@@ -13,6 +13,11 @@ const TicTacToe = () => {
     setBoard(newBoard);
     setIsXNext(!isXNext);
   };
+  const resetGame = () => {
+    setBoard(Array(9).fill(null));
+    setIsXNext(true);
+    // setWinner(null);
+  };
 
   const renderCell = (value, index) => (
     <div
@@ -32,10 +37,7 @@ const TicTacToe = () => {
         <div className="grid grid-cols-3 border border-black w-64">
           {board.map((cell, index) => renderCell(cell, index))}
         </div>
-        <button
-        className="mt-4 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700"
-        // onClick={resetGame}
-      >
+        <button className="mt-4 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700" onClick={resetGame}>
         Reset Game
       </button>
       </div>
