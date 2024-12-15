@@ -27,11 +27,17 @@ const TicTacToe = () => {
 
   return (
     <>
-      <div className="flex flex-col justify-center items-center">
+      <div className="flex flex-col items-center">
         <h1 className="text-900 text-2xl font-bold mb-4">Tic Tac Toe Game</h1>
-        <div className="grid grid-cols-3 border border-black w-64 aspect-square">
+        <div className="grid grid-cols-3 border border-black w-64">
           {board.map((cell, index) => renderCell(cell, index))}
         </div>
+        <button
+        className="mt-4 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700"
+        // onClick={resetGame}
+      >
+        Reset Game
+      </button>
       </div>
     </>
   );
